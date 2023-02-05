@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+    background: rgb(147,235,255);
+    background: radial-gradient(circle, rgba(147,235,255,1) 0%, rgba(255,255,255,1) 100%);
+    color: black;
+
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+.container {
+    background-color: rgb(118, 189, 212);
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 700px;
+    max-width: 90%;
+}
+
+.timer {
+    position: absolute;
+    top: 3rem;
+    font-size: 3rem;
+    color: black;
+    padding: 2rem;
+    font-weight: bold;
+}
+
+.quote-display {
+    margin-bottom: 1rem;
+    margin-left: calc(1rem + 2px);
+    margin-right: calc(1rem + 2px);
+}
+
+.quote-input {
+    background-color: transparent;
+    outline: none;
+    border: 2px solid black;
+    height: 8rem;
+    width: 100%;
+    margin: auto;
+    resize: none;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+}
+
+.quote-input:focus {
+    border-color: green;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}

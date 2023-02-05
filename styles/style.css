@@ -3,8 +3,6 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-
     background: rgb(147,235,255);
     background: radial-gradient(circle, rgba(147,235,255,1) 0%, rgba(255,255,255,1) 100%);
     color: black;
@@ -15,11 +13,14 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+}
 
+body, .quote-input {    
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
-    background-color: rgb(118, 189, 212);
+    background-color: rgb(152, 216, 237);
     padding: 1rem;
     border-radius: .5rem;
     width: 700px;
@@ -44,21 +45,24 @@ body {
 .quote-input {
     background-color: transparent;
     outline: none;
-    border: 2px solid black;
+    border: 2px solid rgba(59, 158, 244, .5);
     height: 8rem;
     width: 100%;
     margin: auto;
     resize: none;
     padding: .5rem 1rem;
     font-size: 1rem;
+
+    border-radius: .5rem;
 }
 
 .quote-input:focus {
-    border-color: green;
+    border-color: rgb(59, 158, 244);
 }
 
 .correct {
     color: green;
+    font-weight: bold;
 }
 
 .incorrect {

@@ -5,13 +5,34 @@ const RANDOM_QUOTE_API = 'https://api.quotable.io/random'
 const quoteDisplay = document.getElementById('quoteDisplay')
 // HTML elemenet that takes user input input
 const quoteInput = document.getElementById('quoteInput')
+// grab timer element
+const timer = document.getElementById('timer')
 
 // Event to handle user input and compare to the quote displayed
 quoteInput.addEventListener('input', () => {
-
+    // storing the quote in var
     const arrQuote = quoteDisplay.querySelectorAll('span')
+    // storing input in a var after split()
     const arrValue = quoteInput.value.split('')
 
+    let correct = true
+    arrQuote.forEach((characterSpan, index) => {
+        const character = arrValue[index]
+
+        if (character == null) {
+            characterSpan.classList.remove('correct')
+            characterSpan.classList.remove('incorrect')
+            correct = false
+        } else if (character === characterSpan.innerText) {
+            characterSpan.classList.add('correct')
+            characterSpan.classList.remove('incorrect')
+        } else {
+            characterSpan.classList.remove('correct')
+            characterSpan.classList.add('incorrect')
+            correct = false
+        }
+    })
+    if (correct) renderNewQuote()
 })
 
 // getting data from API 
@@ -25,7 +46,7 @@ function getRandomQuote () {
 async function renderNewQuote () {
     // data stored in a variable
     const quote = await getRandomQuote()
-    quoteDisplay.innerText = quote
+    quoteDisplay.innerText = ''
     // splits the text into an array then puts every character into a span tag
     quote.split('').forEach (character => {
         const characterSpan = document.createElement('span')
@@ -34,8 +55,46 @@ async function renderNewQuote () {
     })
     // initial textarea is empty
     quoteInput.value = null
+    startTimer()
     // console.log(quote)
 }
+
+// currently set to 10 secs for debugging <<------------------------------------
+let startTime
+// func for timer
+function startTimer () {
+    timer.innerText = 0
+    startTime = new Date()
+    let countStart = setInterval(() => {
+        timer.innerText = getTimerTime()
+        if (getTimerTime() == 10) {
+            clearInterval(countStart)
+            timer.innerText = "Times Up!"
+            quoteInput.disabled = true;
+        }
+    }, 1000);
+}
+
+function getTimerTime () {
+    return Math.floor((new Date() - startTime) / 1000)
+}
+
+// let count = 60
+// function startTimer() {
+//     timer.innerText = count
+
+//     const now = performance.now()
+//     const finishTime = now + 60000 // 60 secs
+
+//     const handle = setInterval(() => {
+//         newCount = count --
+//         timer.innerText = newCount
+//         if (performance.now() >= finishTime) {
+//             quoteInput.disabled = true;
+//             clearInterval(handle); // kill timer
+//         }
+//     }, 1000)
+// }
 
 renderNewQuote()
 

@@ -3,14 +3,16 @@
 }
 
 body {
-    background: rgb(147,235,255);
-    background: radial-gradient(circle, rgba(147,235,255,1) 0%, rgba(255,255,255,1) 100%);
-    color: black;
 
-    
+    /* background: linear-gradient( rgb(44, 35, 101) 0%, rgb(204, 204, 204) 100%); */
+    color: rgb(187, 187, 187);
+    backdrop-filter: blur(2px);
+    background-color: rgba(43, 43, 43, 1);
+
     display: flex;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
     margin: 0;
 }
@@ -19,8 +21,23 @@ body, .quote-input {
     font-family: 'Roboto', sans-serif;
 }
 
+.nav {
+    padding: 2rem;
+    max-width: 700px;
+    width: 100%;
+    font-size: 2rem;  
+    font-weight: bolder;  
+}
+
+.nav-items {
+    display: flex;
+    justify-content: center;   
+}
+
+
+
 .container {
-    background-color: rgb(152, 216, 237);
+    background-color: rgb(51, 59, 61);
     padding: 1rem;
     border-radius: .5rem;
     width: 700px;
@@ -28,43 +45,43 @@ body, .quote-input {
 }
 
 .timer {
-    position: absolute;
-    top: 3rem;
-    font-size: 3rem;
-    color: black;
-    padding: 2rem;
+    font-size: 4rem;
+    color: rgb(162, 232, 232);
+    padding: 5rem;
     font-weight: bold;
 }
 
 .quote-display {
     margin-bottom: 1rem;
-    margin-left: calc(1rem + 2px);
-    margin-right: calc(1rem + 2px);
+    margin-left: calc(1rem + .5px);
+    margin-right: calc(1rem + .5px);
+    font-size: 1.5rem;
 }
 
 .quote-input {
+    color: aliceblue;
     background-color: transparent;
     outline: none;
-    border: 2px solid rgba(59, 158, 244, .5);
+    border: 2px solid rgba(101, 180, 198, 0.5);
     height: 8rem;
     width: 100%;
     margin: auto;
     resize: none;
-    padding: .5rem 1rem;
-    font-size: 1rem;
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
 
     border-radius: .5rem;
 }
 
 .quote-input:focus {
-    border-color: rgb(59, 158, 244);
+    border-color: rgb(59, 244, 241);
 }
 
 .correct {
-    color: green;
+    color: rgb(138, 255, 125);
     font-weight: bold;
 }
 
 .incorrect {
-    color: red;
+    color: rgb(255, 145, 145);
 }

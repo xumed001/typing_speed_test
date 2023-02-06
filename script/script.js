@@ -8,6 +8,8 @@ const quoteInput = document.getElementById('quoteInput')
 // grab timer element
 const timer = document.getElementById('timer')
 
+
+
 // Event to handle user input and compare to the quote displayed
 quoteInput.addEventListener('input', () => {
     // storing the quote in var
@@ -67,7 +69,7 @@ function startTimer () {
     startTime = new Date()
     let countStart = setInterval(() => {
         timer.innerText = getTimerTime()
-        if (getTimerTime() == 10) {
+        if (getTimerTime() == 20) {
             clearInterval(countStart)
             timer.innerText = "Times Up!"
             quoteInput.disabled = true;
@@ -95,6 +97,12 @@ function getTimerTime () {
 //         }
 //     }, 1000)
 // }
+
+// Adding dark mode into the webpage
+function toggleDarkMode () {
+    var elemenet = document.body
+    elemenet.classList.toggle('dark-mode')
+}
 
 renderNewQuote()
 

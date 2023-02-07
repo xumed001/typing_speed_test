@@ -47,8 +47,13 @@ body, .quote-input {
 .timer {
     font-size: 4rem;
     color: rgb(162, 232, 232);
-    padding: 5rem;
+    padding: 2rem;
+    margin: 2rem;
     font-weight: bold;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 15px;
+    border-style: dotted;
+
 }
 
 .quote-display {

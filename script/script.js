@@ -8,7 +8,8 @@ const quoteInput = document.getElementById('quoteInput')
 // grab timer element
 const timer = document.getElementById('timer')
 
-
+// tracking mistakes & calculating WPM feature implemintation left
+// let mistakes = 0
 
 // Event to handle user input and compare to the quote displayed
 quoteInput.addEventListener('input', () => {
@@ -29,6 +30,7 @@ quoteInput.addEventListener('input', () => {
             characterSpan.classList.add('correct')
             characterSpan.classList.remove('incorrect')
         } else {
+            mistakes++
             characterSpan.classList.remove('correct')
             characterSpan.classList.add('incorrect')
             correct = false
@@ -36,6 +38,7 @@ quoteInput.addEventListener('input', () => {
     })
     if (correct) renderNewQuote()
 })
+
 
 // getting data from API 
 function getRandomQuote () {
@@ -61,7 +64,7 @@ async function renderNewQuote () {
     // console.log(quote)
 }
 
-// currently set to 10 secs for debugging <<------------------------------------
+// currently set to xx secs for debugging <<------------------------------------
 let startTime
 // func for timer
 function startTimer () {
@@ -69,7 +72,7 @@ function startTimer () {
     startTime = new Date()
     let countStart = setInterval(() => {
         timer.innerText = getTimerTime()
-        if (getTimerTime() == 20) {
+        if (getTimerTime() == 60) {
             clearInterval(countStart)
             timer.innerText = "Times Up!"
             quoteInput.disabled = true;

@@ -30,7 +30,6 @@ quoteInput.addEventListener('input', () => {
             characterSpan.classList.add('correct')
             characterSpan.classList.remove('incorrect')
         } else {
-            mistakes++
             characterSpan.classList.remove('correct')
             characterSpan.classList.add('incorrect')
             correct = false
@@ -102,10 +101,10 @@ function getTimerTime () {
 // }
 
 // Adding dark mode into the webpage
-function toggleDarkMode () {
-    var elemenet = document.body
-    elemenet.classList.toggle('dark-mode')
-}
+// function toggleDarkMode () {
+//     var elemenet = document.body
+//     elemenet.classList.toggle('dark-mode')
+// }
 
 renderNewQuote()
 
